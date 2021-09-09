@@ -1,1 +1,16 @@
-<p>main works!</p>
+<form [formGroup]="addForm" class="form-container">
+    <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.title.errors }" placeholder="Title"
+        type="text" formControlName="title" pInputText />
+    <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.author.errors }"
+        placeholder="Author" type="text" formControlName="author" pInputText />
+    <p-inputMask class="text-input" placeholder="Publish Date" formControlName="publishDate" mask="9999-99-99">
+    </p-inputMask>
+    <input class="text-input" placeholder="ISBN number" type="text" formControlName="isbnNum" pInputText />
+    <input class="text-input" placeholder="Page count" type="text" formControlName="pageCount" pInputText />
+    <input class="text-input" placeholder="Cover link" type="text" formControlName="coverLink" pInputText />
+    <input class="text-input" placeholder="Language" type="text" formControlName="language" pInputText />
+    <p-button label="Submit" icon="pi pi-check" (click)="onSubmit()"></p-button>
+
+
+
+</form>
