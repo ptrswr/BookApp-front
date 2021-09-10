@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {InputMaskModule} from 'primeng/inputmask';
+import { HttpClientModule} from '@angular/common/http';
+import { BooksListComponent } from './books-list/books-list.component';
+import {TableModule} from 'primeng/table';
+import { AddBookComponent } from './add-book/add-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
+
+
 
 
 
@@ -17,7 +23,9 @@ import {InputMaskModule} from 'primeng/inputmask';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    BooksListComponent,
+    AddBookComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +35,9 @@ import {InputMaskModule} from 'primeng/inputmask';
     BrowserAnimationsModule,
     InputTextModule,
     ButtonModule,
-    InputMaskModule
+    InputMaskModule,
+    HttpClientModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
