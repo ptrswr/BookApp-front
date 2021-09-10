@@ -1,0 +1,52 @@
+<div>
+    <h1>
+        Import book from Google API
+    </h1>
+</div>
+<form [formGroup]="qStringdForm" class="form-container">
+    <label class="label" for="title">Title</label>
+    <input class="text-input" placeholder="Title"  type="text" formControlName="title" pInputText />
+    <label class="label" for="author">Author</label>
+    <input class="text-input" placeholder="Author" type="text" formControlName="author" pInputText />
+    <label class="label" for="publishDate">Publish date</label>
+    <input class="text-input" placeholder="Publish Date (YYYY-MM-DD)"type="text" formControlName="publishDate" pInputText/>
+    <label class="label" for="isbnNum">ISBN Number</label>
+    <input class="text-input" placeholder="ISBN number" type="text" formControlName="isbnNum" pInputText />
+    <label class="label" for="pageCount">Page count</label>
+    <input class="text-input" placeholder="Page count" type="text" formControlName="pageCount" pInputText />
+    <label class="label" for="coverLink">Cover link</label>
+    <input class="text-input" placeholder="Cover link" type="text" formControlName="coverLink" pInputText />
+    <label class="label" for="language">Language</label>
+    <input class="text-input" placeholder="Language" type="text" formControlName="language" pInputText />
+    <div class="buttons-wrapper">    
+        <button pButton pRipple type="button" label="Search" class="custom-button" (click)="onSearch()"></button>
+        <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button" (click)="onCancel()"></button>
+    </div>
+</form>
+
+<p-table #dt1 *ngIf="books.length > 0" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publish Date</th>
+            <th>ISBN Number</th>
+            <th>Page Count</th>
+            <th>Cover Link</th>
+            <th>Language</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publish_date | date:'MM/dd/yyyy'}}</td>
+            <!-- in 2007 the ISBN system switched to a 13-digit format -->
+            <td>{{book.isbn_num}}</td> 
+            <td>{{book.page_count}}</td>
+            <td>{{book.cover_link}}</td>
+            <td>{{book.language}}</td>
+        </tr>
+    </ng-template>
+</p-table>

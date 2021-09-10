@@ -3,15 +3,14 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { BookService } from '../book.service';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-google-import',
-  templateUrl: './google-import.component.html',
-  styleUrls: ['./google-import.component.css']
+  selector: 'app-query-string-search',
+  templateUrl: './query-string-search.component.html',
+  styleUrls: ['./query-string-search.component.css']
 })
-export class GoogleImportComponent implements OnInit {
-  
-  importForm!: FormGroup; 
+export class QueryStringSearchComponent implements OnInit {
+
+  searchForm!: FormGroup; 
   books:any[] = [];
 
   constructor(private router: Router,
@@ -19,21 +18,21 @@ export class GoogleImportComponent implements OnInit {
               private bookService: BookService) { }
   
   ngOnInit(): void {
-    this.importForm = this.formBuilder.group({
-      intitle: '',
-      inauthor: '',
-      inpublisher: '',
-      subject: '',
-      isbn: '',
-      lccn: '',
-      oclc: ''
+    this.searchForm = this.formBuilder.group({
+      title: '',
+      author: '',
+      publishDate: '',
+      isbnNum: '',
+      pageCount: '',
+      coverLink: '',
+      language: ''
     });
   }
-
+  
   onSearch(){
     let queryString = '';
-    for (const field in this.importForm.controls) { 
-      const formValue = this.importForm.get(field); 
+    for (const field in this.searchForm.controls) { 
+      const formValue = this.searchForm.get(field); 
       if(formValue?.value !== "") {
         queryString += field + ':' + formValue?.value + '+';
       }
@@ -64,18 +63,6 @@ export class GoogleImportComponent implements OnInit {
         console.log(err);
       }
     ) 
-  }
-  onSave(){
-    this.bookService.addImportedBooks(({data: this.books}))
-    .then((data:any) => {
-      console.log(data);
-      this.books = [];
-    })
-    .catch(
-      err => {
-        console.log(err);
-      }
-    )
   }
   onCancel(){
     this.router.navigate(['']);
