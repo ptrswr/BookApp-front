@@ -22,12 +22,18 @@ export class BookService {
   }
 
   async addBook(body: any) {
-    console.log(environment.apiUrl);
     return await this.http.post(`${environment.apiUrl}/api/books/add`, body).toPromise();
+  }
+  
+  async addImportedBooks(body: any){
+    return await this.http.post(`${environment.apiUrl}/api/books/import`, body).toPromise();
   }
 
   async removeBook(id: string) {
     return await this.http.delete(`${environment.apiUrl}/api/books/delete/${id}`).toPromise();
+  }
+  async importBooksFromGoogle(queryString: string){
+    return await this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${queryString}&key=${environment.apiKey}`).toPromise();
   }
 
 }
