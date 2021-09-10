@@ -23,7 +23,7 @@
     </div>
 </form>
 
-<p-table #dt1 *ngIf="books" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books">
+<p-table #dt1 *ngIf="books.length > 0" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books">
 
     <ng-template pTemplate="header">
         <tr>
@@ -38,14 +38,14 @@
     </ng-template>
     <ng-template pTemplate="body" let-book>
         <tr>
-            <td>{{book.volumeInfo.title}}</td>
-            <td>{{book.volumeInfo.authors[0]}}</td>
-            <td>{{book.volumeInfo.publishedDate | date:'MM/dd/yyyy'}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publish_date | date:'MM/dd/yyyy'}}</td>
             <!-- in 2007 the ISBN system switched to a 13-digit format -->
-            <td>{{book.volumeInfo.industryIdentifiers[1].identifier}}</td> 
-            <td>{{book.volumeInfo.pageCount}}</td>
-            <td>{{book.volumeInfo.previewLink}}</td>
-            <td>{{book.volumeInfo.language}}</td>
+            <td>{{book.isbn_num}}</td> 
+            <td>{{book.page_count}}</td>
+            <td>{{book.cover_link}}</td>
+            <td>{{book.language}}</td>
         </tr>
     </ng-template>
 </p-table>

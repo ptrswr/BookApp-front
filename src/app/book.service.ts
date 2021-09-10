@@ -24,8 +24,9 @@ export class BookService {
   async addBook(body: any) {
     return await this.http.post(`${environment.apiUrl}/api/books/add`, body).toPromise();
   }
-  
+
   async addImportedBooks(body: any){
+    console.log(body);
     return await this.http.post(`${environment.apiUrl}/api/books/import`, body).toPromise();
   }
 

@@ -14,6 +14,7 @@ import {TableModule} from 'primeng/table';
 import { AddBookComponent } from './add-book/add-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { GoogleImportComponent } from './google-import/google-import.component';
+import { QueryStringSearchComponent } from './query-string-search/query-string-search.component';
 
 
 
@@ -27,7 +28,8 @@ import { GoogleImportComponent } from './google-import/google-import.component';
     BooksListComponent,
     AddBookComponent,
     EditBookComponent,
-    GoogleImportComponent
+    GoogleImportComponent,
+    QueryStringSearchComponent
   ],
   imports: [
     BrowserModule,
