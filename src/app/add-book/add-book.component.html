@@ -1,0 +1,20 @@
+<div>
+    <h1>
+        Add new book
+    </h1>
+</div>
+<form [formGroup]="addForm" class="form-container">
+    <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.title.errors }" placeholder="Title"
+        type="text" formControlName="title" pInputText />
+    <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.author.errors }"
+        placeholder="Author" type="text" formControlName="author" pInputText />
+    <input class="text-input" placeholder="Publish Date (YYYY-MM-DD)"type="text" formControlName="publishDate" pInputText/>
+    <input class="text-input" placeholder="ISBN number" type="text" formControlName="isbnNum" pInputText />
+    <input class="text-input" placeholder="Page count" type="text" formControlName="pageCount" pInputText />
+    <input class="text-input" placeholder="Cover link" type="text" formControlName="coverLink" pInputText />
+    <input class="text-input" placeholder="Language" type="text" formControlName="language" pInputText />
+    <div class="buttons-wrapper">    
+        <button pButton pRipple type="button" label="Submit" class="custom-button" (click)="onSubmit()"></button>
+        <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button" (click)="onCancel()"></button>
+    </div>
+</form>

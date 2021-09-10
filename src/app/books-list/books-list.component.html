@@ -1,0 +1,45 @@
+
+<p-table #dt1 *ngIf="books" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books" [globalFilterFields]="['book.author','book.title','book.language']">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                Title             
+                <p-columnFilter type="text" field="title"></p-columnFilter>
+            </th>
+            <th>
+                Author
+                <p-columnFilter type="text" field="author"></p-columnFilter>
+            </th>
+            <th>
+                Publish Date
+                <p-columnFilter type="date" field="publish_date" display="menu" ></p-columnFilter>
+            </th>
+            <th>ISBN Number</th>
+            <th>Page Count</th>
+            <th>Cover Link</th>
+            <th>
+                Language
+                <p-columnFilter type="text" field="language"></p-columnFilter>
+            </th>
+            <th>
+                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success" routerLink="/add"></button>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publish_date | date:'MM/dd/yyyy'}}</td>
+            <td>{{book.isbn_num}}</td>
+            <td>{{book.page_count}}</td>
+            <td>{{book.cover_link}}</td>
+            <td>{{book.language}}</td>
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success" ></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="removeBook(book.title,book.book_id)" ></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
