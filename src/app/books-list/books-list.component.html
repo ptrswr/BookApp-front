@@ -37,7 +37,7 @@
             <td>{{book.cover_link}}</td>
             <td>{{book.language}}</td>
             <td>
-                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success" ></button>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success" (click)="editBook(book)" routerLink="/edit"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="removeBook(book.title,book.book_id)" ></button>
             </td>
         </tr>

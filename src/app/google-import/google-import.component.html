@@ -1,9 +1,9 @@
 <div>
     <h1>
-        Edit  book
+        Import book from Google API
     </h1>
 </div>
-<form [formGroup]="editForm" class="form-container">
+<form [formGroup]="importForm" class="form-container">
     <label class="label" for="title">Title</label>
     <input id="title" class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.title.errors }" placeholder="Title"
         type="text" formControlName="title" pInputText />
@@ -23,5 +23,32 @@
     <div class="buttons-wrapper">    
         <button pButton pRipple type="button" label="Submit" class="custom-button" (click)="onSubmit()"></button>
         <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button" (click)="onCancel()"></button>
+        <button pButton pRipple type="button" label="Save Imported Books" class="custom-button" (click)="onSave()"></button>
     </div>
 </form>
+
+<p-table #dt1 *ngIf="books" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books" [globalFilterFields]="['book.author','book.title','book.language']">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publish Date</th>
+            <th>ISBN Number</th>
+            <th>Page Count</th>
+            <th>Cover Link</th>
+            <th>Language</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publish_date | date:'MM/dd/yyyy'}}</td>
+            <td>{{book.isbn_num}}</td>
+            <td>{{book.page_count}}</td>
+            <td>{{book.cover_link}}</td>
+            <td>{{book.language}}</td>
+        </tr>
+    </ng-template>
+</p-table>

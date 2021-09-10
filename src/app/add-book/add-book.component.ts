@@ -20,9 +20,9 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
-        title: ['',Validators.required],
-        author: ['',Validators.required],
-        publishDate: ['',Validators.pattern(/\d{4}-\d{2}-\d{2}/)],
+        title: ['', Validators.required],
+        author: ['', Validators.required],
+        publishDate: ['', [Validators.pattern(/\d{4}-\d{2}-\d{2}/), Validators.required]],
         isbnNum: '',
         pageCount: '',
         coverLink: '',
@@ -45,18 +45,19 @@ export class AddBookComponent implements OnInit {
         cover_link: this.form.coverLink.value,
         language: this.form.language.value,
     }).then((data:any) => {
-      console.log(data.msg);
+      alert("Book has been added");
+      this.router.navigate(['']);
+      return;
     })
     .catch(
-      err =>{
+      err => {
+        this.submitted = false;
         console.log(err);
       }
     ) 
-    this.submitted = false;
   }
   onCancel(){
     this.router.navigate(['']);
     return;
   }
-
 }

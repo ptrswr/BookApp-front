@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
+import { BookDataService } from '../book-data.service';
 
 @Component({
   selector: 'app-books-list',
@@ -9,26 +10,27 @@ import { BookService } from '../book.service';
 export class BooksListComponent implements OnInit {
   books: any;
 
-  constructor(private bookservice: BookService) { }
+  constructor(private bookservice: BookService, private dataService: BookDataService) { }
 
   ngOnInit(): void {
     this.bookservice.getAllBooks().then((data: any) => {
       this.books = data.data;
       this.books.forEach((book: any) => {
         book.publish_date = new Date(book.publish_date); 
-        console.log(typeof(book.publish_date))
       });
-      console.log(data);
     })
   }
 
-
+  editBook(book: any){
+      this.dataService.pushMessage(book);
+      console.log(book);
+  }
+    
 
   removeBook(title: string, id: string){
     this.bookservice.removeBook(id).then((data: any) =>
     {
       this.books = this.books.filter((book:any) => book.book_id !== id);
-      console.log(data.msg);
       alert(`Book ${title} has been removed`);
 
     }

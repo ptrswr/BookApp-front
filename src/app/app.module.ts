@@ -13,6 +13,7 @@ import { BooksListComponent } from './books-list/books-list.component';
 import {TableModule} from 'primeng/table';
 import { AddBookComponent } from './add-book/add-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
+import { GoogleImportComponent } from './google-import/google-import.component';
 
 
 
@@ -25,7 +26,8 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     AppComponent,
     BooksListComponent,
     AddBookComponent,
-    EditBookComponent
+    EditBookComponent,
+    GoogleImportComponent
   ],
   imports: [
     BrowserModule,
