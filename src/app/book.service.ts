@@ -36,5 +36,8 @@ export class BookService {
   async importBooksFromGoogle(queryString: string){
     return await this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${queryString}&key=${environment.apiKey}`).toPromise();
   }
+  async getBooksByQueryString(queryString: string){
+    return await this.http.get(`${environment.apiUrl}/api/books/search?q=${queryString}`).toPromise();
+  }
 
 }

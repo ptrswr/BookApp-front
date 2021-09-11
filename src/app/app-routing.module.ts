@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'add', component: AddBookComponent },
   { path: 'edit', component: EditBookComponent },
   { path: 'import', component: GoogleImportComponent },
-  { path: 'qstring', component: QueryStringSearchComponent},
+  { path: 'search', component: QueryStringSearchComponent},
 ]
 
 @NgModule({

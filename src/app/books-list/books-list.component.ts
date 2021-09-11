@@ -23,7 +23,6 @@ export class BooksListComponent implements OnInit {
 
   editBook(book: any){
       this.dataService.pushMessage(book);
-      console.log(book);
   }
     
 

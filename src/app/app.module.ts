@@ -15,6 +15,9 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { GoogleImportComponent } from './google-import/google-import.component';
 import { QueryStringSearchComponent } from './query-string-search/query-string-search.component';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
+import { MenuBarComponent } from './menu-bar/menu-bar.component'
 
 
 
@@ -29,7 +32,8 @@ import { QueryStringSearchComponent } from './query-string-search/query-string-s
     AddBookComponent,
     EditBookComponent,
     GoogleImportComponent,
-    QueryStringSearchComponent
+    QueryStringSearchComponent,
+    MenuBarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,7 @@ import { QueryStringSearchComponent } from './query-string-search/query-string-s
     InputMaskModule,
     HttpClientModule,
     TableModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
