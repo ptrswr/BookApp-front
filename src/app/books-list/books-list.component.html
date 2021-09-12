@@ -1,25 +1,24 @@
-
+<div class="header">List of books in the database</div>
 <p-table #dt1 *ngIf="books" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books" [globalFilterFields]="['book.author','book.title','book.language']">
-
     <ng-template pTemplate="header">
         <tr>
             <th>
-                Title             
+                <div class="label">Title</div>           
                 <p-columnFilter type="text" field="title"></p-columnFilter>
             </th>
             <th>
-                Author
+                <div class="label">Author</div>           
                 <p-columnFilter type="text" field="author"></p-columnFilter>
             </th>
             <th>
-                Publish Date
+                <div class="label">Publish Date</div>           
                 <p-columnFilter type="date" field="publish_date" display="menu" ></p-columnFilter>
             </th>
             <th>ISBN Number</th>
             <th>Page Count</th>
             <th>Cover Link</th>
             <th>
-                Language
+                <div class="label">Language</div>           
                 <p-columnFilter type="text" field="language"></p-columnFilter>
             </th>
             <th>

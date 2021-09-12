@@ -1,3 +1,13 @@
 .p-button-rounded {
     margin: 0.5rem;
 }
+.header {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    color:#495057;
+}
+.label {
+    margin-bottom: 0.3rem;
+}
