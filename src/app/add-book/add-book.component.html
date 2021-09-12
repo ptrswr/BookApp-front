@@ -5,6 +5,7 @@
         </h1>
     </div>
     <form [formGroup]="addForm" class="form-container">
+        <label class="label" for="title">Title</label>
         <div class="error-group">
             <div *ngIf="submitted && form.title.errors">
                 <p class="invalid-input">
@@ -12,8 +13,9 @@
                 </p>
             </div>
             <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.title.errors }"
-                placeholder="Title" type="text" formControlName="title" pInputText />
+                type="text" formControlName="title" pInputText />
         </div>
+        <label class="label" for="author">Author</label>
         <div class="error-group">
             <div *ngIf="submitted && form.title.errors">
                 <p class="invalid-input">
@@ -21,8 +23,9 @@
                 </p>
             </div>
             <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.author.errors }"
-                placeholder="Author" type="text" formControlName="author" pInputText />
+                type="text" formControlName="author" pInputText />
         </div>
+        <label class="label" for="date">Publish Date</label>
         <div class="error-group">
             <div *ngIf="submitted && form.title.errors">
                 <p class="invalid-input">
@@ -30,12 +33,16 @@
                 </p>
             </div>
             <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.author.errors }"
-                placeholder="Publish Date (YYYY-MM-DD)" type="text" formControlName="publishDate" pInputText />
+                placeholder="YYYY-MM-DD" type="text" formControlName="publishDate" pInputText />
         </div>
-        <input class="text-input" placeholder="ISBN number" type="text" formControlName="isbnNum" pInputText />
-        <input class="text-input" placeholder="Page count" type="text" formControlName="pageCount" pInputText />
-        <input class="text-input" placeholder="Cover link" type="text" formControlName="coverLink" pInputText />
-        <input class="text-input" placeholder="Language" type="text" formControlName="language" pInputText />
+        <label class="label" for="isbn">ISBN Number</label>
+        <input class="text-input" type="text" formControlName="isbnNum" pInputText />
+        <label class="label" for="page">Page Count</label>
+        <input class="text-input"  type="text" formControlName="pageCount" pInputText />
+        <label class="label" for="cover">Cover Link</label>
+        <input class="text-input"  type="text" formControlName="coverLink" pInputText />
+        <label class="label" for="language">Language</label>
+        <input class="text-input" type="text" formControlName="language" pInputText />
         <div class="buttons-wrapper">
             <button pButton pRipple type="button" label="Submit" class="custom-button" (click)="onSubmit()"></button>
             <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button"
