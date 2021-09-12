@@ -26,7 +26,7 @@
         </div>
     </form>
     <p-progressSpinner *ngIf="submitted && books.length === 0" styleClass="spinner" strokeWidth="3"
-    animationDuration="1s"></p-progressSpinner>
+        animationDuration="1s"></p-progressSpinner>
     <p-table #dt1 *ngIf="books.length > 0" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books">
         <ng-template pTemplate="header">
             <tr>

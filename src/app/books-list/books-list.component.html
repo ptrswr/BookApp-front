@@ -1,29 +1,32 @@
 <div class="header">List of books in the database</div>
-<p-progressSpinner  *ngIf="books == null" styleClass="spinner" strokeWidth="3" animationDuration="1s"></p-progressSpinner>
-<p-table #dt1 *ngIf="books" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books" [globalFilterFields]="['book.author','book.title','book.language']">
+<p-progressSpinner *ngIf="books == null" styleClass="spinner" strokeWidth="3" animationDuration="1s">
+</p-progressSpinner>
+<p-table #dt1 *ngIf="books" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books"
+    [globalFilterFields]="['book.author','book.title','book.language']">
     <ng-template pTemplate="header">
         <tr>
             <th>
-                <div class="label">Title</div>           
+                <div class="label">Title</div>
                 <p-columnFilter type="text" field="title"></p-columnFilter>
             </th>
             <th>
-                <div class="label">Author</div>           
+                <div class="label">Author</div>
                 <p-columnFilter type="text" field="author"></p-columnFilter>
             </th>
             <th>
-                <div class="label">Publish Date</div>           
-                <p-columnFilter type="date" field="publish_date" display="menu" ></p-columnFilter>
+                <div class="label">Publish Date</div>
+                <p-columnFilter type="date" field="publish_date" display="menu"></p-columnFilter>
             </th>
             <th>ISBN Number</th>
             <th>Page Count</th>
             <th>Cover Link</th>
             <th>
-                <div class="label">Language</div>           
+                <div class="label">Language</div>
                 <p-columnFilter type="text" field="language"></p-columnFilter>
             </th>
             <th>
-                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success" routerLink="/add"></button>
+                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success"
+                    routerLink="/add"></button>
             </th>
         </tr>
     </ng-template>
@@ -37,8 +40,10 @@
             <td>{{book.cover_link}}</td>
             <td>{{book.language}}</td>
             <td>
-                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success" (click)="editBook(book)" routerLink="/edit"></button>
-                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="removeBook(book.title,book.book_id)" ></button>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success"
+                    (click)="editBook(book)" routerLink="/edit"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                    (click)="removeBook(book.title,book.book_id)"></button>
             </td>
         </tr>
     </ng-template>

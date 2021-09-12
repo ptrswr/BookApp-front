@@ -16,25 +16,23 @@ export class BooksListComponent implements OnInit {
     this.bookservice.getAllBooks().then((data: any) => {
       this.books = data.data;
       this.books.forEach((book: any) => {
-        book.publish_date = new Date(book.publish_date); 
+        book.publish_date = new Date(book.publish_date);
       });
     })
   }
 
-  editBook(book: any){
-      this.dataService.pushMessage(book);
+  editBook(book: any) {
+    this.dataService.pushMessage(book);
   }
-    
 
-  removeBook(title: string, id: string){
-    this.bookservice.removeBook(id).then((data: any) =>
-    {
-      this.books = this.books.filter((book:any) => book.book_id !== id);
+
+  removeBook(title: string, id: string) {
+    this.bookservice.removeBook(id).then((data: any) => {
+      this.books = this.books.filter((book: any) => book.book_id !== id);
       alert(`Book ${title} has been removed`);
 
     }
-    ).catch(err =>
-    {
+    ).catch(err => {
       console.log(err)
     })
   }
