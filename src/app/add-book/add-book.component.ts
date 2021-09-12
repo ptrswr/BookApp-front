@@ -22,7 +22,8 @@ export class AddBookComponent implements OnInit {
     this.addForm = this.formBuilder.group({
         title: ['', Validators.required],
         author: ['', Validators.required],
-        publishDate: ['', [Validators.pattern(/\d{4}-\d{2}-\d{2}/), Validators.required]],
+        // Assuming that user will input full date, although there are incomplete dates in database too 
+        publishDate: ['', [Validators.required,Validators.pattern(/\d{4}-\d{2}-\d{2}/)]],
         isbnNum: '',
         pageCount: '',
         coverLink: '',

@@ -38,7 +38,7 @@ export class EditBookComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       title: [this.bookToEdit.title, Validators.required],
       author: [this.bookToEdit.author, Validators.required],
-      publishDate: [this.datePipe.transform(this.bookToEdit.publish_date, 'yyyy-MM-dd'), [Validators.pattern(/\d{4}-\d{2}-\d{2}/), Validators.required]],
+      publishDate: [this.datePipe.transform(this.bookToEdit.publish_date, 'yyyy-MM-dd'), [Validators.required,Validators.pattern(/\d{4}-\d{2}-\d{2}/)]],
       isbnNum: this.bookToEdit.isbn_num,
       pageCount: this.bookToEdit.page_count,
       coverLink: this.bookToEdit.cover_link,

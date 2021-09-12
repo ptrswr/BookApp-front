@@ -1,4 +1,5 @@
 <div class="header">List of books in the database</div>
+<p-progressSpinner  *ngIf="books == null" styleClass="spinner" strokeWidth="3" animationDuration="1s"></p-progressSpinner>
 <p-table #dt1 *ngIf="books" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books" [globalFilterFields]="['book.author','book.title','book.language']">
     <ng-template pTemplate="header">
         <tr>

@@ -11,3 +11,10 @@
 .label {
     margin-bottom: 0.3rem;
 }
+:host ::ng-deep .spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    width: 150px; 
+    height: 150px;
+}

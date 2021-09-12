@@ -1,27 +1,52 @@
-<div>
-    <h1>
-        Edit  book
-    </h1>
-</div>
-<form [formGroup]="editForm" class="form-container">
-    <label class="label" for="title">Title</label>
-    <input id="title" class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.title.errors }" placeholder="Title"
-        type="text" formControlName="title" pInputText />
-    <label class="label" for="author">Author</label>
-    <input id="author"class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.author.errors }"
-        placeholder="Author" type="text" formControlName="author" pInputText />
-    <label class="label" for="date">Publish Date</label>
-    <input id="date"class="text-input" placeholder="Publish Date (YYYY-MM-DD)"type="text" formControlName="publishDate" pInputText/>
-    <label class="label" for="isbn">ISBN Number</label>
-    <input id="isbn"class="text-input" placeholder="ISBN number" type="text" formControlName="isbnNum" pInputText />
-    <label class="label" for="page">Page Count</label>
-    <input id="page"class="text-input" placeholder="Page count" type="text" formControlName="pageCount" pInputText />
-    <label class="label" for="cover">Cover Link</label>
-    <input id="cover"class="text-input" placeholder="Cover link" type="text" formControlName="coverLink" pInputText />
-    <label class="label" for="language">Language</label>
-    <input id="language" class="text-input" placeholder="Language" type="text" formControlName="language" pInputText />
-    <div class="buttons-wrapper">    
-        <button pButton pRipple type="button" label="Submit" class="custom-button" (click)="onSubmit()"></button>
-        <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button" (click)="onCancel()"></button>
+<div class="container">
+    <div>
+        <h1 class="header">
+            Edit book
+        </h1>
     </div>
-</form>
+    <form [formGroup]="editForm" class="form-container">
+        <label class="label" for="title">Title</label>
+        <div class="error-group">
+            <div *ngIf="submitted && form.title.errors">
+                <p class="invalid-input">
+                    Title is required
+                </p>
+            </div>
+            <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.title.errors }" type="text"
+                formControlName="title" pInputText />
+        </div>
+        <label class="label" for="author">Author</label>
+        <div class="error-group">
+            <div *ngIf="submitted && form.title.errors">
+                <p class="invalid-input">
+                    Author is required
+                </p>
+            </div>
+            <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.author.errors }" type="text"
+                formControlName="author" pInputText />
+        </div>
+        <label class="label" for="date">Publish Date</label>
+        <div class="error-group">
+            <div *ngIf="submitted && form.title.errors">
+                <p class="invalid-input">
+                    Publish Date is required
+                </p>
+            </div>
+            <input class="text-input" [ngClass]="{ 'ng-invalid ng-dirty': submitted && form.author.errors }" type="text"
+                formControlName="publishDate" pInputText />
+        </div>
+        <label class="label" for="isbn">ISBN Number</label>
+        <input id="isbn" class="text-input" type="text" formControlName="isbnNum" pInputText />
+        <label class="label" for="page">Page Count</label>
+        <input id="page" class="text-input" type="text" formControlName="pageCount" pInputText />
+        <label class="label" for="cover">Cover Link</label>
+        <input id="cover" class="text-input" type="text" formControlName="coverLink" pInputText />
+        <label class="label" for="language">Language</label>
+        <input id="language" class="text-input" type="text" formControlName="language" pInputText />
+        <div class="buttons-wrapper">
+            <button pButton pRipple type="button" label="Submit" class="custom-button" (click)="onSubmit()"></button>
+            <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button"
+                (click)="onCancel()"></button>
+        </div>
+    </form>
+</div>

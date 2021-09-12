@@ -16,14 +16,8 @@ import { EditBookComponent } from './edit-book/edit-book.component';
 import { GoogleImportComponent } from './google-import/google-import.component';
 import { QueryStringSearchComponent } from './query-string-search/query-string-search.component';
 import {MenubarModule} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
 import { MenuBarComponent } from './menu-bar/menu-bar.component'
-
-
-
-
-
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -47,6 +41,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component'
     HttpClientModule,
     TableModule,
     MenubarModule,
+    ProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

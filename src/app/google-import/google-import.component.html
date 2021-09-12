@@ -1,51 +1,61 @@
-<div>
-    <h1>
-        Import book from Google API
-    </h1>
-</div>
-<form [formGroup]="importForm" class="form-container">
-    <label class="label" for="inTitle">Title</label>
-    <input id="inTitle" class="text-input" placeholder="Search for title" type="text" formControlName="intitle" pInputText />
-    <label class="label" for="inAuthor">Author</label>
-    <input id="inAuthor"class="text-input" placeholder="Search for author" type="text" formControlName="inauthor" pInputText />
-    <label class="label" for="publisher">Publisher</label>
-    <input id="publisher"class="text-input" placeholder="Search for publisher"type="text" formControlName="inpublisher" pInputText/>
-    <label class="label" for="isbn">ISBN Number</label>
-    <input id="isbn"class="text-input" placeholder="Search for ISBN number" type="text" formControlName="isbn" pInputText />
-    <label class="label" for="lccn">LCCN</label>
-    <input id="lccn"class="text-input" placeholder="Search for LCCN number" type="text" formControlName="lccn" pInputText />
-    <label class="label" for="oclc">OCLC</label>
-    <input id="oclc"class="text-input" placeholder="Search for OCLC number" type="text" formControlName="oclc" pInputText />
-    <div class="buttons-wrapper">    
-        <button pButton pRipple type="button" label="Search" class="custom-button" (click)="onSearch()"></button>
-        <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button" (click)="onCancel()"></button>
-        <button pButton pRipple type="button" label="Save Imported Books" class="custom-button" (click)="onSave()"></button>
+<div class="container">
+    <div>
+        <h1 class="header">
+            Import books from Google API
+        </h1>
     </div>
-</form>
-
-<p-table #dt1 *ngIf="books.length > 0" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books">
-
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Publish Date</th>
-            <th>ISBN Number</th>
-            <th>Page Count</th>
-            <th>Cover Link</th>
-            <th>Language</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-book>
-        <tr>
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>{{book.publish_date | date:'MM/dd/yyyy'}}</td>
-            <!-- in 2007 the ISBN system switched to a 13-digit format -->
-            <td>{{book.isbn_num}}</td> 
-            <td>{{book.page_count}}</td>
-            <td>{{book.cover_link}}</td>
-            <td>{{book.language}}</td>
-        </tr>
-    </ng-template>
-</p-table>
+    <form [formGroup]="importForm" class="form-container">
+        <label class="label" for="inTitle">Title</label>
+        <input id="inTitle" class="text-input" placeholder="Search for title" type="text" formControlName="intitle"
+            pInputText />
+        <label class="label" for="inAuthor">Author</label>
+        <input id="inAuthor" class="text-input" placeholder="Search for author" type="text" formControlName="inauthor"
+            pInputText />
+        <label class="label" for="publisher">Publisher</label>
+        <input id="publisher" class="text-input" placeholder="Search for publisher" type="text"
+            formControlName="inpublisher" pInputText />
+        <label class="label" for="isbn">ISBN Number</label>
+        <input id="isbn" class="text-input" placeholder="Search for ISBN number" type="text" formControlName="isbn"
+            pInputText />
+        <label class="label" for="lccn">LCCN</label>
+        <input id="lccn" class="text-input" placeholder="Search for LCCN number" type="text" formControlName="lccn"
+            pInputText />
+        <label class="label" for="oclc">OCLC</label>
+        <input id="oclc" class="text-input" placeholder="Search for OCLC number" type="text" formControlName="oclc"
+            pInputText />
+        <div class="buttons-wrapper">
+            <button pButton pRipple type="button" label="Search" class="custom-button" (click)="onSearch()"></button>
+            <button pButton pRipple type="button" label="Cancel" class="p-button-danger custom-button"
+                (click)="onCancel()"></button>
+            <button pButton pRipple type="button" label="Save Imported Books" class="custom-button"
+                (click)="onSave()"></button>
+        </div>
+    </form>
+    <p-progressSpinner *ngIf="submitted && books.length === 0" styleClass="spinner" strokeWidth="3"
+        animationDuration="1s"></p-progressSpinner>
+    <p-table #dt1 *ngIf="books.length > 0" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [value]="books">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publish Date</th>
+                <th>ISBN Number</th>
+                <th>Page Count</th>
+                <th>Cover Link</th>
+                <th>Language</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-book>
+            <tr>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.publish_date | date:'MM/dd/yyyy'}}</td>
+                <!-- in 2007 the ISBN system switched to a 13-digit format -->
+                <td>{{book.isbn_num}}</td>
+                <td>{{book.page_count}}</td>
+                <td>{{book.cover_link}}</td>
+                <td>{{book.language}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

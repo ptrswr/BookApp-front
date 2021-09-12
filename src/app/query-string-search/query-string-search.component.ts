@@ -13,6 +13,7 @@ export class QueryStringSearchComponent implements OnInit {
 
   searchForm!: FormGroup; 
   books:any[] = [];
+  submitted = false;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
@@ -34,22 +35,32 @@ export class QueryStringSearchComponent implements OnInit {
 
   onSearch(){
     let queryString = '';
+    this.submitted = true;
     for (const field in this.searchForm.controls) { 
       const formValue = this.searchForm.get(field); 
       if(formValue?.value !== "") {
         queryString += field + ':' + formValue?.value + '|';
       }
     }
-
+    if(queryString === ''){
+      alert("You have to fill the form first")
+      this.submitted = false;
+      return
+    }
     queryString = queryString.slice(0, -1);
-    console.log(queryString);
     this.bookService.getBooksByQueryString(queryString)
     .then((data:any) => {
+      this.submitted = false;
+      if(data.data.length === 0){
+        alert('No results for given query')
+        return
+      }
       this.books = data.data;
     })
     .catch(
       err => {
         console.log(err);
+        this.submitted = false;
       }
     ) 
   }
@@ -70,6 +81,7 @@ export class QueryStringSearchComponent implements OnInit {
   }
   onCancel(){
     this.router.navigate(['']);
+    this.submitted = false;
     return;
   }
 
