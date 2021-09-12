@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://127.0.0.1:5000',
+  apiUrl: 'https://book-app-back.herokuapp.com',
   apiKey: 'AIzaSyDxXUHuqR4PyTCyS5pUv8z7n9aH29RDQi0'
 };
 
